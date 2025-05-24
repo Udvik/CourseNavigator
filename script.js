@@ -16,19 +16,22 @@ $(document).ready(function() {
   
       if (filteredCourses.length > 0) {
         filteredCourses.forEach(function(course) {
-          
-          var cardHTML = `
-            <div class="card" style="width: 18rem;">
-              <img src="${course.imageURL}" class="card-img-top" alt="${course.title} Image">
-              <div class="card-body">
-                <h5 class="card-title">${course.title}</h5>
-                <p class="card-text">${course.description}</p>
-                <a href="CourseNavigator/html/${course.title}.html" class="btn btn-primary">View Course</a>
-              </div>
-            </div>
-          `;
-          $('.cards').append(cardHTML);
-        });
+  // Remove spaces and make the first letter lowercase to match your file names
+  const safeTitle = course.title.replace(/\s+/g, '');
+  const fileName = safeTitle.charAt(0).toLowerCase() + safeTitle.slice(1);
+  const href = `html/${fileName}.html`;
+  var cardHTML = `
+    <div class="card" style="width: 18rem;">
+      <img src="${course.imageURL}" class="card-img-top" alt="${course.title} Image">
+      <div class="card-body">
+        <h5 class="card-title">${course.title}</h5>
+        <p class="card-text">${course.description}</p>
+        <a href="${href}" class="btn btn-primary">View Course</a>
+      </div>
+    </div>
+  `;
+  $('.cards').append(cardHTML);
+});
       } else {
         $('.cards').append('<p>No courses found.</p>');
       }

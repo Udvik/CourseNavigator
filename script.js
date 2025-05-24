@@ -23,7 +23,7 @@ $(document).ready(function() {
               <div class="card-body">
                 <h5 class="card-title">${course.title}</h5>
                 <p class="card-text">${course.description}</p>
-                <a href="/html/${course.title}.html" class="btn btn-primary">View Course</a>
+                <a href=`/html/${course.title}.html` class="btn btn-primary">View Course</a>
               </div>
             </div>
           `;

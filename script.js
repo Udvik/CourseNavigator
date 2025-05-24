@@ -23,9 +23,7 @@ $(document).ready(function() {
               <div class="card-body">
                 <h5 class="card-title">${course.title}</h5>
                 <p class="card-text">${course.description}</p>
-                const safeTitle = course.title.replace(/\s+/g, ''); // Removes all spaces
-                const href = `CourseNavigator/html/${safeTitle}.html`;
-                <a href="${href}" class="btn btn-primary">View Course</a>
+                <a href="CourseNavigator/html/${course.title}.html" class="btn btn-primary">View Course</a>
               </div>
             </div>
           `;
